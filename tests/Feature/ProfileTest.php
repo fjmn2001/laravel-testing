@@ -19,4 +19,13 @@ class ProfileTest extends TestCase
         $this->assertTrue(Storage::disk('local')->exists("profiles/{$photo->hashName()}"));
         $response->assertRedirect('profile');
     }
+
+    public function test_photo_required()
+    {
+        $response = $this->post('profile', [
+            'photo' => ''
+        ]);
+
+        $response->assertSessionHasErrors('photo');
+    }
 }
