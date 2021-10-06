@@ -11,6 +11,10 @@ final class TagPostController extends Controller
 {
     public function __invoke(Request $request)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
         Tag::create($request->all());
 
         return redirect('/');
