@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileUploadController;
+use App\Http\Controllers\TagDeleteController;
 use App\Http\Controllers\TagPostController;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Route;
@@ -19,5 +20,6 @@ Route::view('profile', 'profile');
 
 Route::post('profile', ProfileUploadController::class);
 Route::post('tags', TagPostController::class);
+Route::delete('tags/{id}', TagDeleteController::class);
 
 
